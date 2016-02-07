@@ -1,0 +1,21 @@
+img {
+  width: 130px;
+  height: 100px;
+}
+
+.entry {
+  height: 150px;
+  text-align: center;
+}
+
+.product-img input{
+  float: left;
+  width: 130px;
+  height: 100px;
+}
+
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    text-align: left;
+  }
+}

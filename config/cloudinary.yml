@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dtp7wwvba
+  api_key: '167853325849287'
+  api_secret: 6h_bHAa1To_vF4HI27QlmUxvDvc
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dtp7wwvba
+  api_key: '167853325849287'
+  api_secret: 6h_bHAa1To_vF4HI27QlmUxvDvc
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dtp7wwvba
+  api_key: '167853325849287'
+  api_secret: 6h_bHAa1To_vF4HI27QlmUxvDvc
+  enhance_image_tag: true
+  static_image_support: false

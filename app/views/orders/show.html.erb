@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @order.order_name %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @order.order_address %>
+</p>
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @order.payment_type %>
+</p>
+
+<p>
+  <strong>Payment status:</strong>
+  <%= @order.payment_status %>
+</p>
+
+<p>
+  <strong>Deliver status:</strong>
+  <%= @order.deliver_status %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<table>
+  <tr>
+    <td><%= line_item.quantity %>&times;</td>
+    <td><%= line_item.product.name %></td>
+    <td class="item_price"><%= line_item.total_price %></td>
+  </tr>
+</table>
+<%= link_to 'Edit', edit_line_item_path(@line_item) %> |
+<%= link_to 'Back', line_items_path %>
