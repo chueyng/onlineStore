@@ -3,7 +3,11 @@ img {
   height: 100px;
 }
 
-.entry row {
+.entry {
+  display: inline-block;
+}
+
+.entry .row {
   height: 150px;
   text-align: center;
 }

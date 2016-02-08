@@ -6,7 +6,7 @@
 
 <% @products.each do |product| %>
   <div class="entry row">
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-12">
       <div class="thumbnail">
         <%= link_to image_submit_tag(product.image), line_items_path(:product_id => product), :method => :post, :remote => true %>
         <div class="caption">

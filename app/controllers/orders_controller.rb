@@ -1,11 +1,11 @@
 class OrdersController < ApplicationController
+  skip_before_filter :authorise, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
   def index
-    # @orders = Order.all
-    @orders = Order.paginate :page=>params[:page], :order=>'created_at DESC', :per_page => 10
+    @orders = Order.paginate :page=>params[:page], :per_page => 10
   end
 
   # GET /orders/1
