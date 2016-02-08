@@ -38,6 +38,9 @@ end
 
     respond_to do |format|
       if @order.save
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
+        Notifier.order_received(@order).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
