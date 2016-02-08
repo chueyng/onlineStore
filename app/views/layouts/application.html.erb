@@ -77,7 +77,7 @@
         <%= yield %>
       </div>
       <div class="row">
-        <% if @cart && @cart.line_items.nil? %>
+        <% if @cart && @cart.line_items.present? %>
           <div class="col-lg-3">
             <div class="well sidebar-nav">
                 <%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
