@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  skip_before_filter :authorise
 
   def new
   end
@@ -7,7 +8,11 @@ class SessionController < ApplicationController
     user = User.find_by :email => params[:email]
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      if user.role == 'admin'
+        redirect_to users_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:error] = 'Invalid login'
       redirect_to login_path
@@ -16,6 +21,7 @@ class SessionController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:cart_id] = nil
     redirect_to root_path
   end
 end

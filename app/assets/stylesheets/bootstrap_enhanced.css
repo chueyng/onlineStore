@@ -4,14 +4,22 @@ img {
 }
 
 .entry {
+  display: inline-block;
+}
+
+.entry .row {
   height: 150px;
   text-align: center;
 }
 
-.product-img input{
-  float: left;
-  width: 130px;
+.thumbnail input {
+  width: 180px;
   height: 100px;
+}
+
+.thumbnail input.btn {
+  width: 100px;
+  height: 40px;
 }
 
 @media (min-width: 768px) {

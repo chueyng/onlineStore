@@ -1,15 +1,12 @@
 class OrdersController < ApplicationController
+  skip_before_filter :authorise, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
   # GET /orders.json
-def index
-  @orders = Order.paginate :page=>params[:page], :per_page => 10
-  respond_to do |format|
-    format.html # index.html.erb 
-    format.xml { render :xml => @orders }
-  end 
-end
+  def index
+    @orders = Order.paginate :page=>params[:page], :per_page => 10
+  end
 
   # GET /orders/1
   # GET /orders/1.json
@@ -82,6 +79,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:order_date, :delivery_date, :delivery_time, :payment_type, :payment_status, :deliver_status)
+      params.require(:order).permit(:order_name, :order_address, :order_date, :delivery_date, :delivery_time, :payment_type, :payment_status, :deliver_status)
     end
 end

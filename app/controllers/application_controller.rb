@@ -19,4 +19,11 @@ class ApplicationController < ActionController::Base
     session[:cart_id] = cart.id
     cart
   end
+
+  protected
+  def authorise
+    unless User.find_by_id(session[:user_id])
+      redirect_to login_path, :notice => "Please log in"
+    end
+  end
 end
