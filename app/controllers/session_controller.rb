@@ -9,7 +9,8 @@ class SessionController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
       if user.role == 'admin'
-        redirect_to users_path
+        redirect_to '/app#store'
+        # redirect_to users_path (old routes rails)
       else
         redirect_to root_path
       end
