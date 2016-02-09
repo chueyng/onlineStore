@@ -18,8 +18,17 @@ app.ProductListItemView = Backbone.View.extend({
     // if ( event.which !== ENTER_KEY || !this.$input.val().trim() ) {
     //     return;
     //   }
-    
-    app.carts.create( this.newAttributes() );
+    var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
+    this.$el.html( cartPageViewTemplate );// $("#main")????
+
+    // create a new list item (with the product ID that was clicked)
+    // Pass that into the cart
+    var listItem = new app.ListItem({
+      product_id: this.model.get("id")
+    });
+    listItem.product = this.model;
+
+    app.carts.create( listItem ); //broken
     app.router.navigate("/cart", true);
   },
 });
