@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        Notifier.order_received(@order).deliver
+        Notifier.order_received(@order).deliver unless @current_user.present?
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -79,6 +79,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:order_name, :order_address, :order_date, :delivery_date, :delivery_time, :payment_type, :payment_status, :deliver_status)
+      params.require(:order).permit(:order_firstName, :order_lastName, :order_streetLine1, :order_streetLine2, :order_postcode, :order_suburb, :order_state, :order_mobile, :order_message, :payment_type, :payment_status, :delivery_status)
     end
 end

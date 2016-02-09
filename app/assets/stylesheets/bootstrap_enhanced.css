@@ -1,14 +1,38 @@
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+#storeCarousel {
+  top: -20px;
+  max-height: 400px;
+}
+
+#storeCarousel img {
+  max-height: 400px;
+}
+
+#main {
+  position: relative;
+}
+
 img {
   width: 130px;
   height: 100px;
 }
 
-.entry {
+ul {
+  list-style: none;
+}
+
+li {
   display: inline-block;
 }
 
-.entry .row {
-  height: 150px;
+.entry {
+  margin-left: 0px;
+  margin-right: 20px;
   text-align: center;
 }
 

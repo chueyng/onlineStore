@@ -1,27 +1,37 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Name:</strong>
-  <%= @order.order_name %>
-</p>
-<p>
-  <strong>Address:</strong>
-  <%= @order.order_address %>
-</p>
-<p>
-  <strong>Order date:</strong>
-  <%= @order.order_date %>
-</p>
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Payment type:</strong>
-  <%= @order.payment_type %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:first_Name) %>:</strong></dt>
+  <dd><%= @order.order_firstName %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:last_Name) %>:</strong></dt>
+  <dd><%= @order.order_lastName %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:street_Line1) %>:</strong></dt>
+  <dd><%= @order.order_streetLine1 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:street_Line2) %>:</strong></dt>
+  <dd><%= @order.order_streetLine2 %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:postcode) %>:</strong></dt>
+  <dd><%= @order.order_postcode %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:suburb) %>:</strong></dt>
+  <dd><%= @order.order_suburb %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:state) %>:</strong></dt>
+  <dd><%= @order.order_state %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @order.order_phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:message) %>:</strong></dt>
+  <dd><%= @order.order_message %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:payment_type) %>:</strong></dt>
+  <dd><%= @order.payment_type %></dd>
+</dl>
 
-<p>
-  <strong>Payment status:</strong>
-  <%= @order.payment_status %>
-</p>
-
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              orders_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_order_path(@order), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              order_path(@order),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
