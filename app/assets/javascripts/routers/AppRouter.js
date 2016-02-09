@@ -5,11 +5,19 @@ app.AppRouter = Backbone.Router.extend({
 
   },
   routes: {
-    
-    'store': 'store'
+    'store': 'store',
+    // 'product': 'product'
   },
   store: function () {
-    var StorePageView = new app.StorePageView({});
-    StorePageView.render();
-  }
+    app.products = new app.Products();
+    app.products.fetch().done(function () {
+      var StorePageView = new app.StorePageView({collection: app.products});
+      StorePageView.render();
+    });
+  },
+
+  // product: function () {
+  //   var ProductPageView = new app.ProductPageView({});
+  //   ProductPageView.render();
+  // }
 });
