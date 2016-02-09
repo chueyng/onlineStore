@@ -68,6 +68,11 @@ class UsersController < ApplicationController
       user_details[:image] = nil
     end
 
+    if params[:password].present? && params[:password_confirmation].present?
+      user_details[:password] = params[:password]
+      user_details[:password_confirmation] = params[:password_confirmation]
+    end
+
     respond_to do |format|
       if @user.update(user_details)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
