@@ -8,7 +8,7 @@ app.AppRouter = Backbone.Router.extend({
     'store': 'store',
     'mydetails': 'myDetails',
     'products/:id': 'viewProduct',
-    'cart': 'myCartContainer'
+    'cart': 'myCartContainer',
   },
   store: function () {
     app.products = new app.Products();
