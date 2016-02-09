@@ -1,32 +1,96 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<%= form_for @order, :html => { :class => "form-horizontal order" } do |f| %>
 
-      <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @order.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :order_name %>
+
+  <div class="form-group">
+    <%= f.label :first_Name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :order_firstName, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_firstName) %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :order_address %>
+  <div class="form-group">
+    <%= f.label :last_Name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :order_lastName, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_lastName) %>
   </div>
-  <div class="field">
-    <%= f.label :order_date %><br>
-    <%= f.date_select :order_date %>
+  <div class="form-group">
+    <%= f.label :street_Line1, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :order_streetLine1, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_streetLine1) %>
   </div>
-  <div class="field">
-    <%= f.label :payment_type %><br>
-    <%= f.select :payment_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
+  <div class="form-group">
+    <%= f.label :street_Line2, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :order_streetLine2, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_streetLine2) %>
   </div>
-  <div class="actions">
-    <%= f.submit 'Place Order' %>
+  <div class="form-group">
+    <%= f.label :postcode, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :order_postcode, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_postcode) %>
   </div>
+  <div class="form-group">
+    <%= f.label :suburb, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :order_suburb, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_suburb) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select :order_state, Order::STATES,:prompt => 'Select State', :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_state) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :order_phone, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_phone) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :additional_message, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_area :order_message, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:order_message) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :payment_type, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+     <%= f.select :payment_type, Order::PAYMENT_TYPES,:prompt => 'Select a payment method', :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:payment_type) %>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit 'Confirm Order', :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                orders_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
 <% end %>

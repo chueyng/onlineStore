@@ -32,14 +32,20 @@ ActiveRecord::Schema.define(version: 20160207032123) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.text     "order_name"
-    t.text     "order_address"
-    t.date     "order_date"
+    t.text     "order_firstName"
+    t.text     "order_lastName"
+    t.text     "order_streetLine1"
+    t.text     "order_streetLine2"
+    t.integer  "order_postcode"
+    t.string   "order_suburb"
+    t.string   "order_state"
+    t.string   "order_phone"
+    t.text     "order_message"
     t.string   "payment_type"
     t.string   "payment_status"
-    t.string   "deliver_status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "delivery_status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "user_id"
   end
 
