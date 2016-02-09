@@ -6,5 +6,10 @@ app.CartPageView = Backbone.View.extend({
   render: function() {
     var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
     this.$el.html( cartPageViewTemplate );
+    // need to set keys/ values (product_id) in local storage
+  },
+
+  saveCart: function() {
+
   }
 });

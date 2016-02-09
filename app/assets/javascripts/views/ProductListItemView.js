@@ -15,7 +15,11 @@ app.ProductListItemView = Backbone.View.extend({
   },
 
   goToCartPageView: function() {
-    console.log('!!!')
+    // if ( event.which !== ENTER_KEY || !this.$input.val().trim() ) {
+    //     return;
+    //   }
+    
+    app.carts.create( this.newAttributes() );
     app.router.navigate("/cart", true);
   },
 });
