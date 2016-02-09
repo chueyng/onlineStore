@@ -19,7 +19,27 @@
 
 <!-- Store view -->
 <script id="storePageViewTemplate" type="text/template">
-  <h1>The store products should go here...</h1>
+  <h1>Products</h1>
+    <ul class="productList"></ul>
+</script>
+
+<script id="productListItemViewTemplate" type="text/template">
+  <div class="entry row">
+    <div class="col-sm-12">
+      <div class="thumbnail">
+      <img src="{{ image }}" />
+        <div class="caption">
+          <h4>{{ name }}</h4>
+          <p>{{ description }}</p>
+          <div class="price_line">
+            <span class="price">{{ price }}</span>
+          </div>
+
+          <button claas="btn btn-primary addCartButton">Add to Cart</button>
+        </div>
+      </div
+    </div>
+  </div>
 </script>
 
 <!-- Template to edit current user details -->
@@ -39,4 +59,5 @@
     <div id="message"></div>
   </form>
 </script>
+
 
