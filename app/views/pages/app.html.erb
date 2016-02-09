@@ -8,8 +8,7 @@
   </script>
 
   <a href="#store">Store&nbsp;</a>
-  <!-- <a href="#mydetails">My Details&nbsp;</a> -->
-  <%#=# link_to 'Logout', logout_path, method: :delete %>
+
   <% end %>
 </nav>
 
@@ -19,7 +18,7 @@
 <script id="storePageViewTemplate" type="text/template">
   <h2>Products</h2>
   <ul class="productList"></ul>
-  <div id="productListViewContainer"></div>
+  <div id="productViewContainer"></div>
 </script>
 
 <!-- Product Views -->
@@ -63,7 +62,6 @@
   </div>
 </script>
 
-
 <!-- Template to edit current user details -->
 <script type="text/template" id="EditUserDetailsPageViewTemplate">
   <hr>
@@ -80,4 +78,8 @@
     <button type="submit" class="editButton">Submit</button>
     <div id="message"></div>
   </form>
+</script>
+
+<script type="text/template" id="cartPageViewTemplate">
+  <h1>Cart here</h1>
 </script>
