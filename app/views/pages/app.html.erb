@@ -8,8 +8,7 @@
   </script>
 
   <a href="#store">Store&nbsp;</a>
-  <!-- <a href="#mydetails">My Details&nbsp;</a> -->
-  <%#=# link_to 'Logout', logout_path, method: :delete %>
+
   <% end %>
 </nav>
 
@@ -35,7 +34,7 @@
             <span class="price">{{ price }}</span>
           </div>
 
-          <button claas="btn btn-primary addCartButton">Add to Cart</button>
+          <button class="btn btn-primary addCartButton">Add to Cart</button>
         </div>
       </div
     </div>
@@ -58,6 +57,10 @@
     <button type="submit" class="editButton">Submit</button>
     <div id="message"></div>
   </form>
+</script>
+
+<script type="text/template" id="cartPageViewTemplate">
+  <h1>Cart here</h1>
 </script>
 
 

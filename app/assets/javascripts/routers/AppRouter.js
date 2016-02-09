@@ -6,7 +6,8 @@ app.AppRouter = Backbone.Router.extend({
   },
   routes: {
     'store': 'store',
-    'mydetails': 'myDetails'
+    'mydetails': 'myDetails',
+    'cart': 'MyCartContainer'
   },
   store: function () {
     app.products = new app.Products();
@@ -19,5 +20,10 @@ app.AppRouter = Backbone.Router.extend({
   myDetails: function () {
     var EditUserDetailsPageView = new app.EditUserDetailsPageView({ model: app.current_user });
     EditUserDetailsPageView.render();
+  },
+
+  MyCartContainer: function () {
+    var cartPageView = new app.CartPageView({ model: app.cart });
+    cartPageView.render();
   }
 });
