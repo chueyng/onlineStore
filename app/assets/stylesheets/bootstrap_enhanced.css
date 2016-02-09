@@ -1,43 +1,16 @@
-
-.pg-main-content {
-  height: 100%;
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
 }
 
-.pg-container {
-  width: 90%;
-  max-width: 970px;
-  margin: 0 auto;
-}
-
-.pg-fixed-bg {
-  position: relative;
-  padding: 60px 15px;
-  text-align: center;
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  -webkit-filter: sepia(40%);
-  filter: sepia(40%);
-}
-
-.pg-fixed-bg h1, .pg-fixed-bg h2 {
-  margin-top: 40px;
-  font-weight: 700;
-  color: #ff8300;
-}
-
-.pg-fixed-bg.pg-bg-1 {
-  background-color: #263645;
-  background-image: url('HomeCinema.jpg');
-  background-size: cover;
-  height: 200%;
-  border: 1px solid #ccc;
-  border-right: 0;
-  border-left: 0;
+#storeCarousel {
   top: -20px;
-  padding: 15em 0;
+  max-height: 400px;
+}
+
+#storeCarousel img {
+  max-height: 400px;
 }
 
 #main {
