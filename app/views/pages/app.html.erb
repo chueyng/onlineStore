@@ -13,34 +13,56 @@
   <% end %>
 </nav>
 
-<div id="container">
-  <div id="main"></div>
-</div>
+<div id="main"></div>
 
-<!-- Store view -->
+<!-- Store View -->
 <script id="storePageViewTemplate" type="text/template">
-  <h1>Products</h1>
-    <ul class="productList"></ul>
+  <h2>Products</h2>
+  <ul class="productList"></ul>
+  <div id="productListViewContainer"></div>
 </script>
 
+<!-- Product Views -->
 <script id="productListItemViewTemplate" type="text/template">
   <div class="entry row">
     <div class="col-sm-12">
       <div class="thumbnail">
-      <img src="{{ image }}" />
+        <img src="{{ image }}" />
         <div class="caption">
           <h4>{{ name }}</h4>
           <p>{{ description }}</p>
           <div class="price_line">
-            <span class="price">{{ price }}</span>
+            <span class="price">${{ price }}</span>
           </div>
-
-          <button claas="btn btn-primary addCartButton">Add to Cart</button>
+          <button class="btn btn-primary addCartButton">Add to Cart</button>
         </div>
       </div
     </div>
   </div>
 </script>
+
+<script type="text/template" id="viewProductTemplate">
+  <div class="modal fade" id="productModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{ name }}</h4>
+        </div>
+        <div class="modal-body">
+          <p>Product Description: {{ description }}</p>
+          <img src="{{image}}">
+          <p>Price: {{ price }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</script>
+
 
 <!-- Template to edit current user details -->
 <script type="text/template" id="EditUserDetailsPageViewTemplate">
@@ -59,5 +81,3 @@
     <div id="message"></div>
   </form>
 </script>
-
-

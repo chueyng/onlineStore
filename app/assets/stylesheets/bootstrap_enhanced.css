@@ -3,6 +3,10 @@ img {
   height: 100px;
 }
 
+ul {
+  list-style: none;
+}
+
 .entry {
   display: inline-block;
 }
