@@ -12,6 +12,7 @@ app.ProductListItemView = Backbone.View.extend({
     var templater = _.template( $('#productListItemViewTemplate').html() );
     var productListItemView = templater( this.model.toJSON() );
     this.$el.html(productListItemView);
+
     $(".entry").append(this.el);
   },
 
@@ -21,12 +22,8 @@ app.ProductListItemView = Backbone.View.extend({
   },
 
   goToCartPageView: function() {
-    // if ( event.which !== ENTER_KEY || !this.$input.val().trim() ) {
-    //     return;
-    //   }
-
     var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
-    this.$el.html( cartPageViewTemplate );// $("#main")????
+    this.$el.html( cartPageViewTemplate );
 
     // create a new list item (with the product ID that was clicked)
     // Pass that into the cart
@@ -35,7 +32,7 @@ app.ProductListItemView = Backbone.View.extend({
     });
     listItem.product = this.model;
 
-    app.carts.create( listItem ); //broken
+    app.carts.create( listItem );
     app.router.navigate("/cart", true);
   },
 

@@ -18,9 +18,9 @@
 <script id="storePageViewTemplate" type="text/template">
   <h2>Products</h2>
   <div class="entry row">
-    <!--<ul class="productList"></ul>-->
   </div>
   <div id="productViewContainer"></div>
+  <div id="cartLineItemViewContainer"></div>
 </script>
 
 <!-- Product Views -->
@@ -121,10 +121,17 @@
 </script>
 
 <script type="text/template" id="cartPageViewTemplate">
-  <h1>My cart</h1>
   <ul class="itemList"></ul>
 </script>
 
 <script type="text/template" id="cartListItemPageViewTemplate">
-  <h2>List item should go here</h2>
+  <div class ="container">
+    <div class="row-right">
+      <div class="col-lg-3">
+        <div class="well sidebar-nav">
+          <h1>My cart</h1>
+          <h2>List item should go here</h2>
+        </div>
+      </div>
+    </div>
 </script>

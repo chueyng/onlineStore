@@ -17,6 +17,11 @@
   position: relative;
 }
 
+.row-right {
+  float:right;
+  display: absolute;
+}
+
 img {
   width: 130px;
   height: 100px;
