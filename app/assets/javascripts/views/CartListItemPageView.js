@@ -5,7 +5,9 @@ app.CartListItemPageView = Backbone.View.extend({
 
   events: {
     'click .button_check_val': 'validQuantity',
-    'click .btn-danger': 'deleteItem'
+    'click .btn-danger': 'deleteItem',
+    'click .button_continue': 'backToShopping',
+    'click .button_check_val': 'cartToOrder'
   },
 
 
@@ -30,5 +32,13 @@ app.CartListItemPageView = Backbone.View.extend({
   deleteItem: function () {
     app.carts.remove( this.model );
     this.$el.remove();
+  },
+
+  backToShopping: function () {
+    app.router.navigate("/store", true)
+  },
+
+  cartToOrder: function () {
+    app.router.navigate("/store", true)
   }
 });

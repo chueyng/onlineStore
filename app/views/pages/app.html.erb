@@ -34,7 +34,7 @@
             <span class="price">${{ price }}</span>
           </div>
           <button class="btn btn-primary addCartButton">Add to Cart</button>
-          <button class="btn btn-warning testCheckoutButton">Checkout</button>
+          <button class="btn btn-warning testCheckoutButton button_check_val">Checkout</button>
         </div>
       </div
     </div>
@@ -142,8 +142,8 @@
         <td>{{ name }}</td>
         <td><span class="price">${{ price }}</span></td>
         <td><input type="number" value="{{ quantity }}" class="valueQuantity"></td>
-        <td><button class="btn btn-default button_check_val">Continue Shopping</button></td>
-        <td><button class="btn btn-primary button_check_val">Checkout</button></td>
+        <td><button class="btn btn-default button_check_val button_continue">Continue Shopping</button></td>
+        <td><button class="btn btn-warning button_check_val">Checkout</button></td>
         <td><button class="btn btn-danger">Delete</button></td>
       </tr>
   </tbody>
