@@ -1,3 +1,7 @@
+body {
+  max-width: 100%;
+}
+
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     width: 70%;
@@ -20,9 +24,11 @@
 table {
   width: 30%;
 }
+
 td {
   text-align: right
 }
+
 .table-striped button {
   width: 11em;
 }
@@ -59,6 +65,14 @@ li {
 .thumbnail input.btn {
   width: 100px;
   height: 40px;
+}
+
+#cartLineItemViewContainer {
+  padding-top: 72px;
+}
+
+#cartLineItemViewContainer input {
+  margin-left: 90%;
 }
 
 @media (min-width: 768px) {

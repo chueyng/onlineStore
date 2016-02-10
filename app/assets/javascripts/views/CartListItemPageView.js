@@ -1,7 +1,6 @@
 var app = app || {};
 
 app.CartListItemPageView = Backbone.View.extend({
-  el: '#cartLineItemViewContainer',
   tagName: 'li',
 
   events: {
@@ -18,7 +17,10 @@ app.CartListItemPageView = Backbone.View.extend({
 
     var cartListItemPageView = templater( templateDetails );
     this.$el.html(cartListItemPageView);
-    $(".itemList").append(this.el)
+
+    $("#cartLineItemViewContainer table tr").filter('.buttons-a, .buttons-b').remove();
+
+    $("#cartLineItemViewContainer").append(this.$el)
   },
 
   validQuantity: function () {

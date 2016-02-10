@@ -10,6 +10,7 @@ app.ProductListItemView = Backbone.View.extend({
   },
 //populate "li" with member of the same group through ProdcutListPageView
   render: function() {
+    console.log('rendering ProductListItemView');
     var templater = _.template( $('#productListItemViewTemplate').html() );
     var productListItemView = templater( this.model.toJSON() );
     this.$el.html(productListItemView);
@@ -23,16 +24,35 @@ app.ProductListItemView = Backbone.View.extend({
   },
 
   goToCartPageView: function() {
+    console.log('goToCartPageView');
     var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
     this.$el.append( cartPageViewTemplate );
 
-    // create a new list item (with the product ID that was clicked)
-    // Pass that into the cart
-    var listItem = new app.ListItem({
-      product_id: this.model.get("id")
-    });
-    listItem.product = this.model;
-    app.carts.create( listItem );
+    // check for this product that may already be in the cart
+    var lineItem = app.carts.findWhere({product_id: this.model.get('id')});
+
+    if (lineItem) {
+      lineItem.set('quantity', lineItem.get('quantity') + 1);
+      var cartView = new app.CartListPageView({collection: app.carts});
+      cartView.render();
+    } else {
+      // Product is not already in the cart
+      // create a new list item (with the product ID that was clicked)
+      // Pass that into the cart
+      var listItem = new app.ListItem({
+        product_id: this.model.get("id")
+      });
+      listItem.product = this.model;
+      app.carts.create( listItem );
+    }
+
+
+    // var currentItem = lineItem.product;
+    // if (currentItem) {
+    //   lineItem.quantity +=
+    // } else {
+
+    // };
 
     app.router.navigate("/cart", true);
   },

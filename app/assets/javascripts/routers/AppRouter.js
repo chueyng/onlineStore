@@ -32,7 +32,7 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   myCartContainer: function () {
-    var cartPageView = new app.CartPageView({ model: app.cart });
+    var cartPageView = new app.CartPageView({ collection: app.carts });
     cartPageView.render();
   }
 });
