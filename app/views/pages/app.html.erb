@@ -98,12 +98,6 @@
         <option value="Western Australia"></option>
       </select>
     <br>
-      <label>Phone</label>
-      <input type="text" name = "phone" id="phone" class="form-control">
-    <br>
-      <label>Additional Message</label>
-      <textarea name = "message" id="message" class="form-control"></textarea>
-    <br>
       <label>Payment Type</label>
       <select id="payment_type" class="form-control">
         <option value="Debit Card">Debit Card</option>
@@ -156,7 +150,7 @@
         <td>{{ name }}</td>
         <td><span class="price">${{ price }}</span></td>
         <td><input type="number" value="{{ quantity }}" class="valueQuantity"></td>
-        <td><input type="number" value="{{ quantity }}" >$</td>
+        <td>${{ quantity * price }}</td>
         <td><button class="btn btn-default button_check_val button_continue">Continue Shopping</button></td>
         <td><button class="btn btn-warning button_check_val">Checkout</button></td>
         <td><button class="btn btn-danger">Delete</button></td>
