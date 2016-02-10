@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20160207032123) do
     t.integer  "order_id"
     t.integer  "product_id"
     t.integer  "cart_id"
-    t.money    "price",      scale: 2
-    t.integer  "quantity",             default: 1
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.decimal  "price",      precision: 8, scale: 2
+    t.integer  "quantity",                           default: 1
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 20160207032123) do
   create_table "products", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
-    t.money    "price",       scale: 2
+    t.decimal  "price",       precision: 8, scale: 2
     t.string   "image"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "users", force: :cascade do |t|

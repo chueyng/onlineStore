@@ -5,7 +5,8 @@ app.ProductListItemView = Backbone.View.extend({
   events: {
     'click img': 'showProduct',
     'click .addCartButton': 'goToCartPageView',
-    'click .testCheckoutButton': 'goToOrderPageView'
+    'click .testCheckoutButton': 'goToOrderPageView',
+    'click .button_check_val': 'validQuantity'
   },
 //populate "li" with member of the same group through ProdcutListPageView
   render: function() {
@@ -21,9 +22,6 @@ app.ProductListItemView = Backbone.View.extend({
   },
 
   goToCartPageView: function() {
-    // if ( event.which !== ENTER_KEY || !this.$input.val().trim() ) {
-    //     return;
-    //   }
 
     var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
     this.$el.html( cartPageViewTemplate );// $("#main")????
@@ -35,7 +33,7 @@ app.ProductListItemView = Backbone.View.extend({
     });
     listItem.product = this.model;
 
-    app.carts.create( listItem ); //broken
+    app.carts.create( listItem ); 
     app.router.navigate("/cart", true);
   },
 
@@ -43,5 +41,9 @@ app.ProductListItemView = Backbone.View.extend({
   goToOrderPageView: function() {
     var orderPageView = new app.OrderPageView({ model: app.order });
     orderPageView.render();
+  },
+
+  validQuantity: function() {
+    
   }
 });
