@@ -22,12 +22,12 @@ app.CartListItemPageView = Backbone.View.extend({
     $(".itemList").append(this.el)
   },
 
-  validQuantity: function () {
-    var newQuantity = this.$el.find("input.valueQuantity").val().trim();
-    newQuantity = parseInt( newQuantity );
+  // validQuantity: function () {
+  //   var newQuantity = this.$el.find("input.valueQuantity").val().trim();
+  //   newQuantity = parseInt( newQuantity );
 
-    this.model.set("quantity", newQuantity);
-  },
+  //   this.model.set("quantity", newQuantity);
+  // },
 
   deleteItem: function () {
     app.carts.remove( this.model );
@@ -35,10 +35,14 @@ app.CartListItemPageView = Backbone.View.extend({
   },
 
   backToShopping: function () {
+    var newQuantity = this.$el.find("input.valueQuantity").val().trim();
+    newQuantity = parseInt( newQuantity );
+
+    this.model.set("quantity", newQuantity);
     app.router.navigate("/store", true)
   },
 
   cartToOrder: function () {
-    app.router.navigate("/store", true)
+    app.router.navigate("/order", true)
   }
 });
