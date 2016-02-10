@@ -25,7 +25,7 @@
 
 <!-- Product Views -->
 <script id="productListItemViewTemplate" type="text/template">
-    <div class="col-lg-4 col-sm-6">
+    <div class="col-lg-4 col-sm-8">
       <div class="thumbnail">
         <img src="{{ image }}" />
         <div class="caption">
@@ -127,11 +127,40 @@
 <script type="text/template" id="cartListItemPageViewTemplate">
   <div class ="container">
     <div class="row-right">
-      <div class="col-lg-3">
+      <div class="col-lg-12">
         <div class="well sidebar-nav">
-          <h1>My cart</h1>
-          <h2>List item should go here</h2>
+          <h4>Your cart</h4>
+              <table class="table-striped">
+                <tr>
+                  <th>Product</th>
+                  <td colspan="2">{{ name }}</td>
+                </tr>
+                <tr>
+                  <th>Price</th>
+                  <td colspan="2"><span class="price">${{ price }}</span></td>
+                </tr>
+                <tr>
+                  <th>Quantity</th>
+                  <td colspan="2"><input type="text" value=" {{ quantity }} "></td>
+                </tr>
+                <tr>
+                  <td colspan="3"></td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                  <td></td>
+                  <td><button class="btn btn-default button_check_val">Continue Shopping</button></td>
+                  <td><button class="btn btn-primary button_check_val">Checkout</button></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td><button class="btn btn-danger">Delete Cart</button></td>
+                </tr>
+            </table>
+          </div>
         </div>
-      </div>
     </div>
 </script>
+
+
+

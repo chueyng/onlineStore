@@ -5,7 +5,8 @@ app.ProductListItemView = Backbone.View.extend({
   events: {
     'click img': 'showProduct',
     'click .addCartButton': 'goToCartPageView',
-    'click .testCheckoutButton': 'goToOrderPageView'
+    'click .testCheckoutButton': 'goToOrderPageView',
+    'click .button_check_val': 'validQuantity'
   },
 //populate "li" with member of the same group through ProdcutListPageView
   render: function() {
@@ -31,8 +32,8 @@ app.ProductListItemView = Backbone.View.extend({
       product_id: this.model.get("id")
     });
     listItem.product = this.model;
-
     app.carts.create( listItem );
+
     app.router.navigate("/cart", true);
   },
 
@@ -40,5 +41,9 @@ app.ProductListItemView = Backbone.View.extend({
   goToOrderPageView: function() {
     var orderPageView = new app.OrderPageView({ model: app.order });
     orderPageView.render();
+  },
+
+  validQuantity: function() {
+
   }
 });

@@ -17,6 +17,16 @@
   position: relative;
 }
 
+table {
+  width: 60%;
+}
+td {
+  text-align: right
+}
+.table-striped button {
+  width: 11em;
+}
+
 .row-right {
   float:right;
   display: absolute;

@@ -7,7 +7,10 @@ app.CartListItemPageView = Backbone.View.extend({
 //populate "li" with member of the same group through ProdcutListPageView
   render: function() {
     var templater = _.template( $('#cartListItemPageViewTemplate').html() );
-    var cartListItemPageView = templater( this.model.toJSON() );
+
+    var templateDetails = _.extend( this.model.toJSON(), this.model.product.toJSON() );
+
+    var cartListItemPageView = templater( templateDetails );
     this.$el.html(cartListItemPageView);
     $(".itemList").append(this.el)
   }
