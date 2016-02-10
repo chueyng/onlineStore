@@ -24,7 +24,7 @@ app.ProductListItemView = Backbone.View.extend({
 
   goToCartPageView: function() {
     var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
-    this.$el.html( cartPageViewTemplate );
+    this.$el.append( cartPageViewTemplate );
 
     // create a new list item (with the product ID that was clicked)
     // Pass that into the cart
