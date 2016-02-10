@@ -6,7 +6,7 @@ app.CartListPageView = Backbone.View.extend({
   },
 
   render: function () {
-    $("#cartLineItemViewContainer").html("");
+    $("#cartLineItemViewContainer").html("<h4>Your Cart<h4>");
     this.collection.length && this.collection.each(function (listItem) {
       var cartListItemPageView = new app.CartListItemPageView({ model: listItem });
       cartListItemPageView.render();

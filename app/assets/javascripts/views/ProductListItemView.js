@@ -10,7 +10,6 @@ app.ProductListItemView = Backbone.View.extend({
   },
 //populate "li" with member of the same group through ProdcutListPageView
   render: function() {
-    console.log('rendering ProductListItemView');
     var templater = _.template( $('#productListItemViewTemplate').html() );
     var productListItemView = templater( this.model.toJSON() );
     this.$el.html(productListItemView);
@@ -24,7 +23,6 @@ app.ProductListItemView = Backbone.View.extend({
   },
 
   goToCartPageView: function() {
-    console.log('goToCartPageView');
     var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
     this.$el.append( cartPageViewTemplate );
 
@@ -33,6 +31,7 @@ app.ProductListItemView = Backbone.View.extend({
 
     if (lineItem) {
       lineItem.set('quantity', lineItem.get('quantity') + 1);
+
       var cartView = new app.CartListPageView({collection: app.carts});
       cartView.render();
     } else {
@@ -42,28 +41,19 @@ app.ProductListItemView = Backbone.View.extend({
       var listItem = new app.ListItem({
         product_id: this.model.get("id")
       });
+
       listItem.product = this.model;
       app.carts.create( listItem );
     }
-
-
-    // var currentItem = lineItem.product;
-    // if (currentItem) {
-    //   lineItem.quantity +=
-    // } else {
-
-    // };
-
+    // var totalPrice = 0;
+    // totalPrice = parseInt(this.model.product.get('price')) * this.model.get('quantity');
+    // $('.total-price').text(totalPrice);
     app.router.navigate("/cart", true);
   },
 
-  //** Hard Code and wait for Sylvain's code ready
   goToOrderPageView: function() {
     var orderPageView = new app.OrderPageView({ model: app.order });
     orderPageView.render();
-  },
-
-  validQuantity: function() {
-
   }
+
 });

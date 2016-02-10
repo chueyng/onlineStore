@@ -4,6 +4,7 @@ _.templateSettings = {
 };
 
 var app = app || {};
+var totalPrice = 0;
 
 app.ENTER_KEY = 13;
 

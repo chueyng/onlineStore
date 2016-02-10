@@ -9,6 +9,7 @@ app.AppRouter = Backbone.Router.extend({
     'mydetails': 'myDetails',
     'products/:id': 'viewProduct',
     'cart': 'myCartContainer',
+    'order': 'myOrder'
   },
   store: function () {
     app.products = new app.Products();
@@ -34,5 +35,10 @@ app.AppRouter = Backbone.Router.extend({
   myCartContainer: function () {
     var cartPageView = new app.CartPageView({ collection: app.carts });
     cartPageView.render();
+  },
+
+  myOrder: function () {
+    var orderPageView = new app.OrderPageView({ model: app.lineItem }); //sure?
+    orderPageView.render();
   }
 });

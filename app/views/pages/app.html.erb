@@ -34,7 +34,6 @@
             <span class="price">${{ price }}</span>
           </div>
           <button class="btn btn-primary addCartButton">Add to Cart</button>
-          <button class="btn btn-warning testCheckoutButton">Checkout</button>
         </div>
       </div
     </div>
@@ -121,49 +120,34 @@
 </script>
 
 <script type="text/template" id="cartPageViewTemplate">
-  <!--<div class ="container">
-    <div class="row-right">
-      <div class="col-lg-12">
-        <div class="well sidebar-nav">
-          <h4>Your cart</h4>-->
-            <ul class="itemList"></ul>
-        <!--</div>
-      </div>
-    </div>
-  </div>-->
+  <ul class="itemList"></ul>
 </script>
 
 <script type="text/template" id="cartListItemPageViewTemplate">
-  <div class="XXXcontainer">
-    <div class="row-right">
-      <div class="col-lg-12">
-      <table class="table-striped">
-        <tr>
-          <th>Product</th>
-          <td colspan="2">{{ name }}</td>
-        </tr>
-        <tr>
-          <th>Price</th>
-          <td colspan="2"><span class="price">${{ price }}</span></td>
-        </tr>
-        <tr>
-          <th>Quantity</th>
-          <td><input type="number" value="{{ quantity }}" class="valueQuantity"></td>
-        </tr>
-        <tr>
-          <td colspan="3"></td>
-        </tr>
-        <tr><td>&nbsp;</td></tr>
-        <tr class="buttons-a">
-          <td></td>
-          <td><button class="btn btn-default button_check_val">Continue Shopping</button></td>
-          <td><button class="btn btn-primary button_check_val">Checkout</button></td>
-        </tr>
-        <tr class="buttons-b">
-          <td></td>
-          <td><button class="btn btn-danger">Delete Cart</button></td>
-        </tr>
-    </table>
+<div class="row-right">
+  <div class="table-striped">
+    <div id="tbl-row">
+      <div id="tbl-title">Product</div>
+      <div id="tbl-details">{{ name }}</div>
+    </div>
+    <div id="tbl-row">
+      <div id="tbl-title">Price</div>
+      <div id="tbl-details">${{ price }}</div>
+    </div>
+    <div id="tbl-row">
+      <div id="tbl-title">Quantity</div>
+      <div id="tbl-details"><input type="number" value="{{ quantity }}" class="valueQuantity"></div>
+    </div>
+    <div id="tbl-row">
+      <div id="tbl-title">Total Amount </div>
+      <div id="tbl-details" class="total-price"></div>
+    </div>
+    <div id="tbl-row" class="buttons-a">
+    <div id="tbl-title"><button class="btn btn-primary button_check_val">Checkout</button></div>
+    </div>
+    <div id="tbl-row" class="buttons-b">
+      <div id="tbl-title"><button class="cs btn btn-warning button_check_val">Continue Shopping</button></div>
+      <div id="tbl-details"><button class="btn btn-danger">Delete Cart</button></div>
     </div>
   </div>
 </div>
