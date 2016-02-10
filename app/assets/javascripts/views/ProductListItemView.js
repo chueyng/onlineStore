@@ -41,9 +41,5 @@ app.ProductListItemView = Backbone.View.extend({
   goToOrderPageView: function() {
     var orderPageView = new app.OrderPageView({ model: app.order });
     orderPageView.render();
-  },
-
-  validQuantity: function() {
-    
   }
 });

@@ -12,7 +12,7 @@ app.AppRouter = Backbone.Router.extend({
   },
   store: function () {
     app.products = new app.Products();
-    app.carts = new app.Carts();
+    app.carts = app.carts || new app.Carts();
 
     app.products.fetch().done(function () {
       var StorePageView = new app.StorePageView({collection: app.products});
