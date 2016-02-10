@@ -22,13 +22,6 @@ app.CartListItemPageView = Backbone.View.extend({
     $(".itemList").append(this.el)
   },
 
-  // validQuantity: function () {
-  //   var newQuantity = this.$el.find("input.valueQuantity").val().trim();
-  //   newQuantity = parseInt( newQuantity );
-
-  //   this.model.set("quantity", newQuantity);
-  // },
-
   deleteItem: function () {
     app.carts.remove( this.model );
     this.$el.remove();
