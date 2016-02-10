@@ -19,7 +19,14 @@ app.CartListItemPageView = Backbone.View.extend({
 
     var cartListItemPageView = templater( templateDetails );
     this.$el.html(cartListItemPageView);
-    $(".itemList").append(this.el)
+
+    $("#cartLineItemViewContainer div").filter('.buttons-a, .buttons-b').remove();
+
+    $("#cartLineItemViewContainer").append(this.$el);
+
+    // var lineItem = app.carts.findWhere({product_id: this.model.get('id')});
+    // totalPrice = parseInt(this.model.product.get('price')) * this.model.get('quantity');
+    // $('.total-price').text(totalPrice);
   },
 
   deleteItem: function () {
