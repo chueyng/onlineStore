@@ -60,44 +60,57 @@
     </div>
   </div>
 </script>
-
+<br>
 <!-- Order View -->
 <script type="text/template" id="orderPageViewTemplate">
+
   <form action="">
-    <label>First Name</label>
-    <input type="text" name = "firstName" id="firstName">
-    <label>Last Name</label>
-    <input type="text" name = "lastName" id="lastName">
-    <label>Street Line1</label>
-    <input type="text" name = "streetLine1" id="streetLine1">
-    <label>Street Line2</label>
-    <input type="text" name = "streetLine2" id="streetLine2">
-    <label>Postcode</label>
-    <input type="text" name = "postcode" id="postcode">
-    <label>Suburb</label>
-    <input type="suburb" name = "suburb" id="suburb">
-    <label>State</label>
-    <select id="state">
-      <option value="Australia Capital Territory">Australia Capital Territory</option>
-      <option value="New South Wales">New South Wales</option>
-      <option value="Northern Territory">Northern Territory</option>
-      <option value="Queensland">Queensland</option>
-      <option value="South Australia">South Australia</option>
-      <option value="Tasmania">Tasmania</option>
-      <option value="Victoria">Victoria</option>
-      <option value="Western Australia"></option>
-    </select>
-    <label>Phone</label>
-    <input type="text" name = "phone" id="phone">
-    <label>Additional Message</label>
-    <textarea name = "message" id="message"></textarea>
-    <label>Payment Type</label>
-    <select id="payment_type">
-      <option value="Debit Card">Debit Card</option>
-      <option value="Credit Card">Credit Card</option>
-    </select>
-    <div id="error"></div>
-    <button type="submit" class="editButton">Confirm Order</button>
+  <h2>Enter your contact Details</h2>
+
+      <label>First Name</label>
+      <input type="text" placeholder="Firstname" name = "firstName" id="firstName" class="form-control">
+    <br>
+      <label>Last Name</label>
+      <input type="text" name = "lastName" id="lastName" class="form-control">
+    <br>
+      <label>Street Line1</label>
+      <input type="text" name = "streetLine1" id="streetLine1" class="form-control">
+    <br>
+      <label>Street Line2</label>
+      <input type="text" name = "streetLine2" id="streetLine2" class="form-control">
+    <br>
+      <label>Postcode</label>
+      <input type="text" name = "postcode" id="postcode" class="form-control">
+    <br>
+      <label>Suburb</label>
+      <input type="suburb" name = "suburb" id="suburb" class="form-control">
+    <br>
+      <label>State</label>
+      <select id="state" class="form-control">
+        <option value="Australia Capital Territory">Australia Capital Territory</option>
+        <option value="New South Wales">New South Wales</option>
+        <option value="Northern Territory">Northern Territory</option>
+        <option value="Queensland">Queensland</option>
+        <option value="South Australia">South Australia</option>
+        <option value="Tasmania">Tasmania</option>
+        <option value="Victoria">Victoria</option>
+        <option value="Western Australia"></option>
+      </select>
+    <br>
+      <label>Phone</label>
+      <input type="text" name = "phone" id="phone" class="form-control">
+    <br>
+      <label>Additional Message</label>
+      <textarea name = "message" id="message" class="form-control"></textarea>
+    <br>
+      <label>Payment Type</label>
+      <select id="payment_type" class="form-control">
+        <option value="Debit Card">Debit Card</option>
+        <option value="Credit Card">Credit Card</option>
+      </select>
+    <br>
+      <div id="error"></div>
+      <button type="submit" class="editButton">Confirm Order</button>
   </form>
 </script>
 
