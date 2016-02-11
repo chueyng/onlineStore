@@ -7,14 +7,15 @@ app.CartListItemPageView = Backbone.View.extend({
     'click .button_check_val': 'validQuantity',
     'click .btn-danger': 'deleteItem',
     'click .button_continue': 'backToShopping',
-    'click .button_check_val': 'cartToOrder'
+    'click .button_check_val': 'cartToOrder',
+    'click .checkout': 'goToStripe'
   },
 
 
 //populate "li" with member of the same group through ProdcutListPageView
   render: function() {
     var templater = _.template( $('#cartListItemPageViewTemplate').html() );
-
+    debugger;
     var templateDetails = _.extend( this.model.toJSON(), this.model.product.toJSON() );
 
     var cartListItemPageView = templater( templateDetails );
@@ -44,5 +45,9 @@ app.CartListItemPageView = Backbone.View.extend({
 
   cartToOrder: function () {
     app.router.navigate("/order", true)
+  },
+
+  goToStripe: function () {
+    
   }
 });
