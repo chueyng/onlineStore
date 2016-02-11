@@ -1,28 +1,43 @@
-== README
+#Backbonline Shop...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Team
+- Angie "the Boss"
+- Sylvain "the Refugee"
 
-Things you may want to cover:
+## Problem
+Being able to build a Backbone online shop to challenge ourselves...
 
-* Ruby version
+## Solution
+Using Backbone local storage for the Cart and Stripe for the payment.
 
-* System dependencies
+## Features
+- User authentication and authorisation
+- Shopping list
+- Cart with instant update quantity/price/total amount
+- stripe payment system
 
-* Configuration
+## Technologies used:
+- Javascript
+- Backbone.js
+- Underscore.js
+- jQuery
+- Rails
+- Stripe
 
-* Database creation
+## Code
+**Routes**: Only the user sign in/up have been built with rails routes.
+**Schema**: 5 Tables organise the Database.
 
-* Database initialization
+## Sore Bits
+- Dreaming in code all week Again...
+- ```This```...(What's this??)
+- ```This.model``` (Which model is this now?)
+- ```TotalAmount```
+- Stripe in Backbone environment 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Cool Beans
+- Being confortable with templating
+- pick a good syntax
+- Project extensibility
+- Working with The Boss
+- Still does not understand what is ```this``` and when to use ```that = this```  I do not want to know anymore.
