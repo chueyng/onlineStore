@@ -129,17 +129,27 @@
 <script type="text/template" id="EditUserDetailsPageViewTemplate">
   <hr>
   <form action="">
+  <div class="form-group">
     <label>Name</label>
     <input type="text" name = "name" id="name" value="{{ name }}" class="form-control">
+  </div>
+  <div class="form-group">
     <label>Email</label>
     <input type="text" name = "email" id="email" value="{{ email }}" class="form-control">
+  </div>
+  <div class="form-group">
     <label>Password</label>
     <input type="password" name = "password" id="password" class="form-control">
+  </div>
+  <div class="form-group">
     <label>Password Confirmation</label>
     <input type="password" name = "password_confirmation" id="password_confirmation" class="form-control">
+  </div>
+  <div class="form-group">
     <div id="error"></div>
-    <button type="submit" class="editButton btn btn-default">Submit</button>
+    <button type="submit" class="editButton btn btn-primary">Edit</button>
     <div id="message"></div>
+  </div>
   </form>
 </script>
 
