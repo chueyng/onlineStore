@@ -8,7 +8,6 @@ app.CartListItemPageView = Backbone.View.extend({
     'click .btn-danger': 'deleteItem',
     'click .button_continue': 'backToShopping',
     'click .button_check_val': 'cartToOrder',
-    'click .checkout': 'goToStripe',
     'change input.valueQuantity': 'updateCart'
 
   },
