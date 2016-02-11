@@ -1,3 +1,7 @@
+<% if flash[:message] %>
+  <h3><%= flash[:message] %></h3>
+<% end %>
+
 <nav class="menu">
   <% if @current_user.present? %>
   <h3>Welcome <span id="currentUserName"><%= @current_user.name %></span></h3>
@@ -81,8 +85,11 @@
 <!-- Order View -->
 <script type="text/template" id="orderPageViewTemplate">
 
-  <form action="">
-  <h2>Enter your contact Details</h2>
+  <%= form_tag charges_path do %>
+    <h2>Enter your contact Details</h2>
+
+    <%= hidden_field_tag :user_id, "{{ id }}" %>
+    <%= hidden_field_tag :total_price, "{{ totalAmount }}" %>
 
       <label>First Name</label>
       <input type="text" placeholder="Firstname" name = "firstName" id="firstName" class="form-control">
@@ -114,14 +121,26 @@
         <option value="Western Australia"></option>
       </select>
     <br>
-      <label>Payment Type</label>
-      <select id="payment_type" class="form-control">
-        <option value="Debit Card">Debit Card</option>
-        <option value="Credit Card">Credit Card</option>
-      </select>
-    <br>
       <div id="error"></div>
-      <button type="submit" class="editButton">Confirm Order</button>
+      <button type="submit" class="editButton">Pay with Card</button>
+
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Amount: ${{ totalAmount / 100 }}</span>
+      </label>
+    </article>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Test Description"
+            data-amount="{{ totalAmount }}"
+            data-locale="auto"></script>
+  <% end %>
   </form>
 </script>
 
@@ -174,14 +193,14 @@
     </div>
     <div id="tbl-row">
       <div id="tbl-title">Sub Total($)</div>
-      <div id="tbl-details" class="total-price">{{parseFloat(price).toFixed(2) * quantity}}</div>
+      <div id="tbl-details" class="total-price">{{parseFloat(parseFloat(price).toFixed(2) * quantity).toFixed(2)}}</div>
     </div>
     <div id="tbl-row" class="buttons-a">
     <div id="tbl-title"><strong>Total Amount($)</strong></div>
     <div id="tbl-details" class="total-amount"></div>
     </div>
     <div id="tbl-row" class="buttons-a">
-    <div id="tbl-details"><button class="btn btn-primary button_check_val">Checkout</button></div>
+    <div id="tbl-title"><button class="btn btn-primary button_check_val checkout">Checkout</button></div>
     </div>
     <div id="tbl-row" class="buttons-b">
       <div id="tbl-title"><button class="cs btn btn-warning button_check_val">Continue Shopping</button></div>
@@ -190,6 +209,9 @@
   </div>
 </div>
 </script>
+
+
+
 
 
 

@@ -17,8 +17,10 @@ app.AppRouter = Backbone.Router.extend({
     app.carts = app.carts || new app.Carts();
 
     app.products.fetch().done(function () {
-      var StorePageView = new app.StorePageView({collection: app.products});
-      StorePageView.render();
+      // app.carts.fetch().done(function () {
+        var StorePageView = new app.StorePageView({collection: app.products});
+        StorePageView.render();
+      // });
     });
   },
 

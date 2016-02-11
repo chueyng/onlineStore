@@ -9,6 +9,7 @@ app.CartListItemPageView = Backbone.View.extend({
     'click .button_continue': 'backToShopping',
     'click .button_check_val': 'cartToOrder',
     'change input.valueQuantity': 'updateCart'
+
   },
 
   updateCart: function () {
@@ -58,5 +59,9 @@ app.CartListItemPageView = Backbone.View.extend({
 
   cartToOrder: function () {
     app.router.navigate("/order", true)
+  },
+
+  goToStripe: function () {
+    
   }
 });
