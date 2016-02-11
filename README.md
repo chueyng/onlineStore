@@ -5,10 +5,10 @@
 - Sylvain "the Refugee"
 
 ## Problem
-Being able to build a Backbone online shop to challenge ourselves...
+Create a fluid online shop to make faster online shopping
 
 ## Solution
-Using Backbone local storage for the Cart and Stripe for the payment.
+Being able to build a Backbone online shop to challenge ourselves...
 
 ## Features
 - User authentication and authorisation
