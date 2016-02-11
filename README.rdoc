@@ -22,7 +22,8 @@ Using Backbone local storage for the Cart and Stripe for the payment.
 - Underscore.js
 - jQuery
 - Rails
-- Stripe
+- [Stripe Tutorial](https://stripe.com/docs/checkout/guides/rails)
+- Cloudinary for storing image
 
 ## Code
 **Routes**: Only the user sign in/up have been built with rails routes.
@@ -40,4 +41,4 @@ Using Backbone local storage for the Cart and Stripe for the payment.
 - pick a good syntax
 - Project extensibility
 - Working with The Boss
-- Still does not understand what is ```this``` and when to use ```that = this```  I do not want to know anymore.
+- Still does not understand what is ```this``` and when to use ```that = this```  I do not want to know more about that, I mean this.
