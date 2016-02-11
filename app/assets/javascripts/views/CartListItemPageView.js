@@ -7,12 +7,21 @@ app.CartListItemPageView = Backbone.View.extend({
     'click .button_check_val': 'validQuantity',
     'click .btn-danger': 'deleteItem',
     'click .button_continue': 'backToShopping',
-    'click .button_check_val': 'cartToOrder'
+    'click .button_check_val': 'cartToOrder',
+    'change input.valueQuantity': 'updateCart'
   },
 
+  updateCart: function () {
+    var newQuantity = this.$el.find('input.valueQuantity').val();
+    this.model.set('quantity', newQuantity);
+    totalAmount = 0;
+    var cartView = new app.CartListPageView({collection: app.carts});
+    cartView.render();
+  },
 
 //populate "li" with member of the same group through ProdcutListPageView
   render: function() {
+
     var templater = _.template( $('#cartListItemPageViewTemplate').html() );
 
     var templateDetails = _.extend( this.model.toJSON(), this.model.product.toJSON() );
@@ -24,9 +33,12 @@ app.CartListItemPageView = Backbone.View.extend({
 
     $("#cartLineItemViewContainer").append(this.$el);
 
-    // var lineItem = app.carts.findWhere({product_id: this.model.get('id')});
     // totalPrice = parseInt(this.model.product.get('price')) * this.model.get('quantity');
-    // $('.total-price').text(totalPrice);
+    // this.$('.total-price').text(totalPrice.toFixed(2));
+    this.$('.total-price').each(function(){
+      totalAmount += parseFloat(this.innerHTML);
+    });
+    this.$('.total-amount').text(totalAmount.toFixed(2));
   },
 
   deleteItem: function () {

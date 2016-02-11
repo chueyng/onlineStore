@@ -161,16 +161,20 @@
       <div id="tbl-details">{{ name }}</div>
     </div>
     <div id="tbl-row">
-      <div id="tbl-title">Price</div>
-      <div id="tbl-details">${{ price }}</div>
+      <div id="tbl-title">Price(AUD)</div>
+      <div id="tbl-details">{{ price }} </div>
     </div>
     <div id="tbl-row">
       <div id="tbl-title">Quantity</div>
       <div id="tbl-details"><input type="number" value="{{ quantity }}" class="valueQuantity"></div>
     </div>
     <div id="tbl-row">
-      <div id="tbl-title">Total Amount </div>
-      <div id="tbl-details" class="total-price"></div>
+      <div id="tbl-title">Sub Total(AUD)</div>
+      <div id="tbl-details" class="total-price">{{price * quantity}}</div>
+    </div>
+    <div id="tbl-row" class="buttons-a">
+    <div id="tbl-title"><strong>Total Amount(AUD)</strong></div>
+    <div id="tbl-details" class="total-amount"></div>
     </div>
     <div id="tbl-row" class="buttons-a">
     <div id="tbl-title"><button class="btn btn-primary button_check_val">Checkout</button></div>
