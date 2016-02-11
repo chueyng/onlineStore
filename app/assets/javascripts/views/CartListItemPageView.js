@@ -37,7 +37,7 @@ app.CartListItemPageView = Backbone.View.extend({
 
     // totalPrice = parseInt(this.model.product.get('price')) * this.model.get('quantity');
 
-    var totalAmount = 0;
+    totalAmount = 0;
     $('.total-price').each(function (i, t) {
       totalAmount += parseFloat($(t).text());
     });
@@ -62,6 +62,6 @@ app.CartListItemPageView = Backbone.View.extend({
   },
 
   goToStripe: function () {
-    
+
   }
 });
