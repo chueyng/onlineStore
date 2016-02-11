@@ -8,10 +8,10 @@ app.EditUserDetailsPageView = Backbone.View.extend({
   },
 
   render: function () {
-    
+
     var EditUserDetailsPageViewTemplate = _.template($('#EditUserDetailsPageViewTemplate').html());
     this.$el.html(EditUserDetailsPageViewTemplate(this.model));
-    
+
   },
 
   saveEdit: function (e) { //e= normal event when form is submitting
@@ -27,11 +27,11 @@ app.EditUserDetailsPageView = Backbone.View.extend({
     user.save().done(function (data) {
         console.log( 'success', data ); // check the user data is updated
         $("#message").prepend("USER WAS SUCCESSFULLY UPDATED");
-        // Clear the #div 
+        // Clear the #div
         var appMess = function() {
           $("#message").html("");
         }
-        var messUpd = setTimeout(appMess, 1000);  
+        var messUpd = setTimeout(appMess, 1000);
 
         $("#currentUserName").text(data.name);
       }).error(function (data) {

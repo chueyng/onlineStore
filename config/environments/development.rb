@@ -13,9 +13,6 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -37,7 +34,11 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
 
-  # config.action_mailer.delivery_method = :test
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+
+  # Change mail delivery to either :smtp, :sendmail, :file, :test
   config.action_mailer.default_url_options = {host: '0.0.0.0:3000'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -46,10 +47,9 @@ Rails.application.configure do
       domain:               'gmail.com',
       user_name:            ENV['username'],
       password:             ENV['password'],
-      authentication:       'login',
+      authentication:       'plain',
       enable_starttls_auto: true
   }
-
 
 
   # Raises error for missing translations

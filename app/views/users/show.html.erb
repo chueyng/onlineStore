@@ -10,16 +10,20 @@
   <dd><%= @user.email %></dd>
   <% if @current_user.present? && @current_user.role == 'admin' %>
     <dt><strong><%= model_class.human_attribute_name(:role) %>:</strong></dt>
+    <dd><%= @user.role %></dd>
   <% end %>
-  <dd><%= @user.role %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
-  <dd><%= image_tag(@user.image, :class => 'img-circle') unless @user.image.nil? %></dd>
 </dl>
-
-<%= link_to t('.back', :default => t("helpers.links.back")),
+<% if @current_user.present? && @current_user.role == 'admin' %>
+  <%= link_to t('.back', :default => t("helpers.links.back")),
               users_path, :class => 'btn btn-default'  %>
+
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_user_path(@user), :class => 'btn btn-default' %>
+<% end %>
+<% if @current_user.present? && @current_user.role == 'customer' %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              root_path+'#mydetails', :class => 'btn btn-default' %>
+<% end %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               user_path(@user),
               :method => 'delete',
