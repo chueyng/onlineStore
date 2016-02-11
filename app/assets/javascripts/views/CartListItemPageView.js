@@ -31,7 +31,7 @@ app.CartListItemPageView = Backbone.View.extend({
     var cartListItemPageView = templater( templateDetails );
     this.$el.html(cartListItemPageView);
 
-    $("#cartLineItemViewContainer div").filter('.buttons-a, .buttons-b').remove();
+    $("#cartLineItemViewContainer div").filter('.buttons-a').hide();
 
     $("#cartLineItemViewContainer").append(this.$el);
 
@@ -47,6 +47,7 @@ app.CartListItemPageView = Backbone.View.extend({
   deleteItem: function () {
     app.carts.remove( this.model );
     this.$el.remove();
+    $("#cartLineItemViewContainer div").filter('.buttons-a').show();
   },
 
   backToShopping: function () {

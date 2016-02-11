@@ -39,6 +39,7 @@ class UsersController < ApplicationController
       user_details[:image] = nil
     end
 
+    user_details[:role] = 'customer' if user_details[:role].nil?
     @user = User.new( user_details )
 
     respond_to do |format|
@@ -102,7 +103,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :roles)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
     end
 
     def check_if_logged_in

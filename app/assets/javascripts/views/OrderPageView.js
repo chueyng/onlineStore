@@ -11,7 +11,6 @@ app.OrderPageView = Backbone.View.extend({
   // },
 
   render: function () {
-    console.log("orderPageView", totalAmount)
     // Gets the orderPageViewTemplate from our app.html.erb to setup the view structure
     var orderPageViewTemplate = _.template($('#orderPageViewTemplate').html());
     this.$el.html(orderPageViewTemplate({

@@ -85,32 +85,38 @@
 <!-- Order View -->
 <script type="text/template" id="orderPageViewTemplate">
 
-  <%= form_tag charges_path do %>
+  <%= form_tag orders_path do %>
     <h2>Enter your contact Details</h2>
 
     <%= hidden_field_tag :user_id, "{{ id }}" %>
     <%= hidden_field_tag :total_price, "{{ totalAmount }}" %>
 
       <label>First Name</label>
-      <input type="text" name = "firstName" id="firstName" class="form-control">
-    <br>
+      <input type="text" placeholder="Firstname" name = "order_firstName" id="firstName" class="form-control">
+
+      <br>
       <label>Last Name</label>
-      <input type="text" name = "lastName" id="lastName" class="form-control">
-    <br>
+      <input type="text" name = "order_lastName" id="lastName" class="form-control">
+
+      <br>
       <label>Street Line1</label>
-      <input type="text" name = "streetLine1" id="streetLine1" class="form-control">
-    <br>
+      <input type="text" name = "order_streetLine1" id="streetLine1" class="form-control">
+
+      <br>
       <label>Street Line2</label>
-      <input type="text" name = "streetLine2" id="streetLine2" class="form-control">
-    <br>
+      <input type="text" name = "order_streetLine2" id="streetLine2" class="form-control">
+
+      <br>
       <label>Postcode</label>
-      <input type="text" name = "postcode" id="postcode" class="form-control">
-    <br>
+      <input type="text" name = "order_postcode" id="postcode" class="form-control">
+
+      <br>
       <label>Suburb</label>
-      <input type="suburb" name = "suburb" id="suburb" class="form-control">
-    <br>
+      <input type="suburb" name = "order_suburb" id="suburb" class="form-control">
+
+      <br>
       <label>State</label>
-      <select id="state" class="form-control">
+      <select name="order_state" id="state" class="form-control">
         <option value="Australia Capital Territory">Australia Capital Territory</option>
         <option value="New South Wales">New South Wales</option>
         <option value="Northern Territory">Northern Territory</option>
@@ -122,7 +128,6 @@
       </select>
     <br>
       <div id="error"></div>
-      
 
     <article>
       <% if flash[:error].present? %>
@@ -131,7 +136,7 @@
         </div>
       <% end %>
       <label class="amount">
-        <span>Amount: ${{ totalAmount / 100 }}</span>
+        <span>Amount: ${{ (totalAmount / 100).toFixed(2) }}</span>
       </label>
     </article>
 
@@ -201,10 +206,7 @@
     </div>
     <div id="tbl-row" class="buttons-a">
     <div id="tbl-title"><button class="btn btn-primary button_check_val checkout">Checkout</button></div>
-    </div>
-    <div id="tbl-row" class="buttons-b">
-      <div id="tbl-title"><button class="cs btn btn-warning button_check_val">Continue Shopping</button></div>
-      <div id="tbl-details"><button class="btn btn-danger">Delete Cart</button></div>
+    <div id="tbl-details"><button class="btn btn-danger">Delete Cart</button></div>
     </div>
   </div>
 </div>

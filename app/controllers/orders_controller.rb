@@ -33,12 +33,33 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
 
+    # Amount in cents
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
+    )
+
+    begin
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => params[:total_price].to_i,
+        :description => 'Rails Stripe customer',
+        :currency    => 'AUD'
+      )
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to new_charge_path
+    end
+
     respond_to do |format|
       if @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
-        Notifier.order_received(@order).deliver unless @current_user.present?
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        # Cart.destroy(session[:cart_id])
+        # session[:cart_id] = nil
+        # Notifier.order_received(@order).deliver unless @current_user.present?
+        NotificationMailer.order_received( @current_user, @order ).deliver_now if @current_user.present?
+
+        flash[:message] = "Payment successful for #{ @current_user.name.capitalize }, $#{ '%.2f' % (params[:total_price].to_f / 100) } was paid!"
+        format.html { redirect_to root_path, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -79,6 +100,11 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:order_firstName, :order_lastName, :order_streetLine1, :order_streetLine2, :order_postcode, :order_suburb, :order_state, :order_mobile, :order_message, :payment_type, :payment_status, :delivery_status)
+      if params[:order]
+        params.require(:order).permit(:order_firstName, :order_lastName, :order_streetLine1, :order_streetLine2, :order_postcode, :order_suburb, :order_state)
+      else
+        params.permit(:order_firstName, :user_id, :order_lastName, :order_streetLine1, :order_streetLine2, :order_postcode, :order_suburb, :order_state)
+      end
+      # params.require(:order).permit(:order_firstName);
     end
 end
