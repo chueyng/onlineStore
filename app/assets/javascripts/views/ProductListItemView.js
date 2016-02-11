@@ -27,7 +27,8 @@ app.ProductListItemView = Backbone.View.extend({
     totalAmount = 0;
 
     var cartPageViewTemplate = _.template($('#cartPageViewTemplate').html());
-    this.$el.append( cartPageViewTemplate );
+    //this.$el.append( cartPageViewTemplate );
+    this.$el.closest('row').append( cartPageViewTemplate );
 
     // check for this product that may already be in the cart
     var lineItem = app.carts.findWhere({product_id: this.model.get('id')});

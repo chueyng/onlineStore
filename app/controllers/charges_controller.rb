@@ -24,7 +24,7 @@ class ChargesController < ApplicationController
     end
 
 
-    flash[:message] = "Payment successful for #{ @user.name.capitalize }, $#{  params[:total_price] } was paid!"
+    flash[:message] = "Payment successful for #{ @user.name.capitalize }, $#{  params[:total_price].to_f / 100 } was paid!"
     render "pages/app"
   end
 end
