@@ -5,6 +5,7 @@ app.AppRouter = Backbone.Router.extend({
 
   },
   routes: {
+    '': 'store',    //Default route
     'store': 'store',
     'mydetails': 'myDetails',
     'products/:id': 'viewProduct',

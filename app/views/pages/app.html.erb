@@ -31,7 +31,7 @@
         <div class="caption">
           <h4>{{ name }}</h4>
           <div class="price_line">
-            <span class="price">${{ price }}</span>
+            <span class="price">${{ parseFloat(price).toFixed(2) }}</span>
           </div>
           <button class="btn btn-primary addCartButton">Add to Cart</button>
         </div>
@@ -50,7 +50,7 @@
         <div class="modal-body">
           <p>Product Description: {{ description }}</p>
           <img src="{{image}}">
-          <p>Price: {{ price }}</p>
+          <p>Price: ${{ parseFloat(price).toFixed(2) }}</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -68,7 +68,7 @@
         <div class="caption">
           <h4>{{ name }}</h4>
           <div class="price_line">
-            <span class="price">${{ price }}</span>
+            <span class="price">${{ parseFloat(price).toFixed(2) }}</span>
           </div>
           <button class="btn btn-primary addCartButton">Add to Cart</button>
         </div>
@@ -165,23 +165,23 @@
       <div id="tbl-details">{{ name }}</div>
     </div>
     <div id="tbl-row">
-      <div id="tbl-title">Price(AUD)</div>
-      <div id="tbl-details">{{ price }} </div>
+      <div id="tbl-title">Price($)</div>
+      <div id="tbl-details">{{ parseFloat(price).toFixed(2) }} </div>
     </div>
     <div id="tbl-row">
       <div id="tbl-title">Quantity</div>
       <div id="tbl-details"><input type="number" value="{{ quantity }}" class="valueQuantity"></div>
     </div>
     <div id="tbl-row">
-      <div id="tbl-title">Sub Total(AUD)</div>
-      <div id="tbl-details" class="total-price">{{price * quantity}}</div>
+      <div id="tbl-title">Sub Total($)</div>
+      <div id="tbl-details" class="total-price">{{parseFloat(price).toFixed(2) * quantity}}</div>
     </div>
     <div id="tbl-row" class="buttons-a">
-    <div id="tbl-title"><strong>Total Amount(AUD)</strong></div>
+    <div id="tbl-title"><strong>Total Amount($)</strong></div>
     <div id="tbl-details" class="total-amount"></div>
     </div>
     <div id="tbl-row" class="buttons-a">
-    <div id="tbl-title"><button class="btn btn-primary button_check_val">Checkout</button></div>
+    <div id="tbl-details"><button class="btn btn-primary button_check_val">Checkout</button></div>
     </div>
     <div id="tbl-row" class="buttons-b">
       <div id="tbl-title"><button class="cs btn btn-warning button_check_val">Continue Shopping</button></div>

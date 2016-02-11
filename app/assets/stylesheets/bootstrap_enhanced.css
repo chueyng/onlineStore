@@ -17,8 +17,9 @@ body {
   max-height: 400px;
 }
 
-#main {
+body #main {
   position: relative;
+  overflow: hidden;
 }
 
 table {

@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   # get '/users/edit' => 'users#edit'
   get '/login' => "session#new"
   post '/login' => "session#create"
-  delete '/login' => "session#destroy"
+  delete '/logout' => "session#destroy"
   get 'store/index' => 'store#index', :as => 'store'
 
-  get '/app' => 'pages#app', :as => 'app'
+  root :to => 'pages#app'
 
-  root :to => "store#index"
+  get '/app' => 'pages#app', :as => 'app'
 
   resources :carts
   resources :users

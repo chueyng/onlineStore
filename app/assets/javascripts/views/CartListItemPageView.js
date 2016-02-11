@@ -14,8 +14,9 @@ app.CartListItemPageView = Backbone.View.extend({
   updateCart: function () {
     var newQuantity = this.$el.find('input.valueQuantity').val();
     this.model.set('quantity', newQuantity);
-    totalAmount = 0;
+
     var cartView = new app.CartListPageView({collection: app.carts});
+    // totalAmount = 0;
     cartView.render();
   },
 
@@ -34,9 +35,10 @@ app.CartListItemPageView = Backbone.View.extend({
     $("#cartLineItemViewContainer").append(this.$el);
 
     // totalPrice = parseInt(this.model.product.get('price')) * this.model.get('quantity');
-    // this.$('.total-price').text(totalPrice.toFixed(2));
-    this.$('.total-price').each(function(){
-      totalAmount += parseFloat(this.innerHTML);
+
+    var totalAmount = 0;
+    $('.total-price').each(function (i, t) {
+      totalAmount += parseFloat($(t).text());
     });
     this.$('.total-amount').text(totalAmount.toFixed(2));
   },
