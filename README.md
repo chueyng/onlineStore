@@ -1,4 +1,4 @@
-#Backbonline Shop...__Image source broken, Sources has to be updated__
+#Backbonline Shop...
 
 ## Team
 - Angie "the Boss"
